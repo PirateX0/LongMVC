@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestHtml</title>
+</head>
+<body>
+    <div>
+        @*<select>
+            @foreach (Person person in Model)
+            {
+                <option selected="@(person.Id==2)">@person.Name</option>
+            }
+        </select>*@
+
+        @Html.DropDownList("pid", (List<SelectListItem>)Model, new { id="id", haha="haha"})
+        
+        @Html.ListBox("lid", (List<SelectListItem>)Model)
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿@model  List<Person>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>longIndex</title>
+</head>
+<body>
+
+    @*
+        @{ string abc = "aa";}
+        @abc
+        <br />
+
+        @{ string[] strs = { "a", "b", "c" };}
+        @foreach (var str in strs)
+        {
+            @str
+            <br />
+        }
+        @if (strs.Length > 1)
+        {
+            <span>length>1</span>
+        }
+
+        @foreach (var item in strs)
+        {
+            <li>yes @item</li>
+        }
+
+        @{string CourseId = "88"; bool isRed = true;}
+        <a href="Course@CourseId.ashx" style='@(isRed ? "color:red" : "color:green")'>link1</a>
+        <a href="Course@(CourseId).ashx" style="color:green">link2</a>
+
+        @@@CourseId
+
+        @{ string html= "<input type='text' name='cool' value='cool' />";}
+        @html
+        @Html.Raw(html)
+
+        <span>333@qq.com</span>
+    *@
+
+    @*@this.GetType().Assembly.Location  <br />
+
+        <img src="~/img/long.jpg" height="100" width="100" />  <br />
+
+        @{
+            bool b1 = true;
+        }
+
+        <input type="checkbox" checked="@b1" id="c1" /><label for="c1">bjgp0001</label>
+        <br />
+        @ViewBag.bag  <br />
+        @ViewData["data"]  <br />
+        @ViewBag.data  <br />
+        @ViewData["bag"]  <br />
+
+        <div>
+            <form action="/Test/Index" method="post">
+                Num1:<input type="text" name="Num1" value="@Model.Num1" />+
+                Num2:<input type="text" name="Num2" value="@Model.Num2" />
+                <input type="submit" value="=" />
+                <span>@Model.Result</span>
+            </form>
+        </div>
+
+        <div>
+            <form action="/Test/F2" method="post">
+                Num1:<input type="text" name="Num1" value="@Model.Num1" />+
+                Num2:<input type="text" name="Num2" value="@Model.Num2" />
+                <input type="submit" value="=" />
+                <span>@Model.Result</span>
+            </form>
+        </div>*@
+
+    <select>
+        @foreach (Person person in Model)
+        {
+            <option>@person.Name</option>
+        }
+    </select>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@using System.Data;
+@model DataTable
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div>
+        <form action="/List/Update" method="post">
+            <input type="hidden" name="MemberId" value="@Model.Rows[0]["MemberId"]" />
+            <table>
+                <tr><td>name: </td><td><input type="text" name="MemName" value="@Model.Rows[0]["MemName"]" /></td></tr>
+                <tr><td>phone: </td><td><input type="text" name="MemMobilePhone" value="@Model.Rows[0]["MemMobilePhone"]" /></td></tr>
+                <tr><td><input type="submit" value="save" /></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

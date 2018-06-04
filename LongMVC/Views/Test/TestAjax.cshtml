@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestAjax</title>
+
+</head>
+<body>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/Test/TestAjax2",
+                    success: function (res) {
+                        alert(res.Name);
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                })
+            });
+        });
+    </script>
+    <div>
+        <button id="btn">testAjax</button>
+    </div>
+</body>
+</html>

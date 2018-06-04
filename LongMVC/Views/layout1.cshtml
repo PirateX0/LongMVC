@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderSection("header", false)
+
+        dalong is handsome!
+        <br />
+
+
+
+        @RenderBody()
+
+
+
+
+        @if (IsSectionDefined("ad"))
+        {
+            @RenderSection("ad")
+        }
+        else
+        {
+            <p>i'm default ad</p>
+        }
+
+
+
+        dalong is excellent!
+        <br />
+
+        @RenderSection("footer", false)
+        <br />
+    </div>
+</body>
+</html>

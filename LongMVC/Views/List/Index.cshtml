@@ -1,0 +1,59 @@
+﻿@using System.Data;
+@model DataTable
+
+
+@{
+    Layout = null;
+}
+
+@{ 
+
+    IndexRequestModel indexRequestModel=new IndexRequestModel() { }；
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/List/TestJson",
+                    success: function (msg) {
+                        alert(msg);
+                    }
+                });
+            });
+
+        });
+
+    </script>
+    <div>
+        <button id="btn">testJason</button>
+        <a href="~/List/Add">add</a>
+        <table>
+            <thead>
+                <tr>
+                <td colspan="2">option</td>
+
+                <td>name</td>
+                <td>age</td>
+                    </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr><td><a href="/List/Delete?MemberId=@row["MemberId"]">delete</a></td><td><a href="/List/Update?MemberId=@row["MemberId"]">update</a></td><td>@row["MemName"]</td><td>@row["MemMobilePhone"]</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

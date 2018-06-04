@@ -1,0 +1,120 @@
+
+execiting log:
+username: , controllerName: Login, actionName:Index
+
+execited log:
+username: , controllerName: Login, actionName:Index
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: a, controllerName: Login, actionName:Login
+
+execiting log:
+username: a, controllerName: Main, actionName:index
+
+execited log:
+username: a, controllerName: Main, actionName:index
+
+execiting log:
+username: a, controllerName: Main, actionName:zhuanzhang
+
+execited log:
+username: a, controllerName: Main, actionName:zhuanzhang
+
+execiting log:
+username: a, controllerName: Main, actionName:logout
+
+execited log:
+username: , controllerName: Main, actionName:logout
+
+execiting log:
+username: , controllerName: Login, actionName:Index
+
+execited log:
+username: , controllerName: Login, actionName:Index
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: b, controllerName: Login, actionName:Login
+
+execiting log:
+username: b, controllerName: Main, actionName:index
+
+execited log:
+username: b, controllerName: Main, actionName:index
+
+execiting log:
+username: , controllerName: Login, actionName:login
+
+execited log:
+username: , controllerName: Login, actionName:login
+
+execiting log:
+username: , controllerName: Login, actionName:login
+
+execited log:
+username: , controllerName: Login, actionName:login
+
+execiting log:
+username: , controllerName: Login, actionName:index
+
+execited log:
+username: , controllerName: Login, actionName:index
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: , controllerName: Login, actionName:Login
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: , controllerName: Login, actionName:Login
+
+execiting log:
+username: , controllerName: Login, actionName:Index
+
+execited log:
+username: , controllerName: Login, actionName:Index
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: , controllerName: Login, actionName:Login
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: , controllerName: Login, actionName:Login
+
+execiting log:
+username: , controllerName: Login, actionName:index
+
+execited log:
+username: , controllerName: Login, actionName:index
+
+execiting log:
+username: , controllerName: Login, actionName:Login
+
+execited log:
+username: a, controllerName: Login, actionName:Login
+
+execiting log:
+username: a, controllerName: Main, actionName:index
+
+execited log:
+username: a, controllerName: Main, actionName:index
+
+execiting log:
+username: a, controllerName: Main, actionName:zhuanzhang
+
+execited log:
+username: a, controllerName: Main, actionName:zhuanzhang
