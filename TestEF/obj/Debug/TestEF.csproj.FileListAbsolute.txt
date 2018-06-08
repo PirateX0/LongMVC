@@ -1,0 +1,12 @@
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\TestEF.exe.config
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\TestEF.exe
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\TestEF.pdb
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\EntityFramework.dll
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\EntityFramework.xml
+C:\Program Files\longCode\LongMVC\TestEF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Program Files\longCode\LongMVC\TestEF\obj\Debug\TestEF.csprojResolveAssemblyReference.cache
+C:\Program Files\longCode\LongMVC\TestEF\obj\Debug\TestEF.csproj.CoreCompileInputs.cache
+C:\Program Files\longCode\LongMVC\TestEF\obj\Debug\TestEF.csproj.CopyComplete
+C:\Program Files\longCode\LongMVC\TestEF\obj\Debug\TestEF.exe
+C:\Program Files\longCode\LongMVC\TestEF\obj\Debug\TestEF.pdb

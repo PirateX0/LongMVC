@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Dynamic;
+using System.Management.Automation.Runspaces;
+using System.Management.Automation;
+using System.Collections.ObjectModel;
 
 namespace testFeatures
 {
@@ -196,42 +199,99 @@ namespace testFeatures
             //} 
             #endregion
 
-            Person p = new Person();
-            Console.WriteLine(p);
-            Console.WriteLine(nameof(p));
+            #region C#6.0 new features
+            //Person p = new Person();
+            //Console.WriteLine(p);
+            //Console.WriteLine(nameof(p));
 
-            int? i = null;
-            Console.WriteLine(i??3);
-            Console.WriteLine(i?.ToString());
-            string s = null;
-            Console.WriteLine(s);
+            //int? i = null;
+            //Console.WriteLine(i??3);
+            //Console.WriteLine(i?.ToString());
+            //string s = null;
+            //Console.WriteLine(s);
 
-            Console.ReadKey();
+            //Console.WriteLine("Hello world!"); 
+            #endregion
+
+            // Create a WSManConnectionInfo object using the default constructor 
+            // to connect to the "localHost". The WSManConnectionInfo object can 
+            // also be used to specify connections to remote computers.
+            //WSManConnectionInfo connectionInfo = new WSManConnectionInfo(new System.Uri("10.164.96.80"));
+            WSManConnectionInfo connectionInfo = new WSManConnectionInfo(PSSessionType.DefaultRemoteShell);
+            connectionInfo.Credential = null;
+            // Set the OperationTimeout property and OpenTimeout properties. 
+            // The OperationTimeout property is used to tell Windows PowerShell 
+            // how long to wait (in milliseconds) before timing out for an  
+            // operation. The OpenTimeout property is used to tell Windows 
+            // PowerShell how long to wait (in milliseconds) before timing out 
+            // while establishing a remote connection.
+            connectionInfo.OperationTimeout = 4 * 60 * 1000; // 4 minutes.
+            connectionInfo.OpenTimeout = 1 * 60 * 1000; // 1 minute.
+
+            // Create a remote runspace using the connection information.
+            //using (Runspace remoteRunspace = RunspaceFactory.CreateRunspace())
+            using (Runspace remoteRunspace = RunspaceFactory.CreateRunspace(connectionInfo))
+            {
+                // Establish the connection by calling the Open() method to open the runspace. 
+                // The OpenTimeout value set previously will be applied while establishing 
+                // the connection. Establishing a remote connection involves sending and 
+                // receiving some data, so the OperationTimeout will also play a role in this process.
+                remoteRunspace.Open();
+
+                // Create a PowerShell object to run commands in the remote runspace.
+                using (PowerShell powershell = PowerShell.Create())
+                {
+                    powershell.Runspace = remoteRunspace;
+                    powershell.AddCommand("get-process");
+                    powershell.Invoke();
+
+                    Collection<PSObject> results = powershell.Invoke();
+
+                    Console.WriteLine("Process              HandleCount");
+                    Console.WriteLine("--------------------------------");
+
+                    // Display the results.
+                    foreach (PSObject result in results)
+                    {
+                        Console.WriteLine(
+                                          "{0,-20} {1}",
+                                          result.Members["ProcessName"].Value,
+                                          result.Members["HandleCount"].Value);
+                    }
+                }
+
+                // Close the connection. Call the Close() method to close the remote 
+                // runspace. The Dispose() method (called by using primitive) will call 
+                // the Close() method if it is not already called.
+                remoteRunspace.Close();
+
+                Console.ReadKey();
+            }
         }
-    }
-    class Person
-    {
-        public string Name { get; set; } = "dalong";
-        public int Age { get; set; } = 18;
-        public override string ToString()
+        class Person
         {
-            return Name+","+Age;
+            public string Name { get; set; } = "dalong";
+            public int Age { get; set; } = 18;
+            public override string ToString()
+            {
+                return Name + "," + Age;
+            }
         }
-    }
-    class Master
+        class Master
 
-    {
-        public long Id { get; set; }
-        public string Name { get; set; }
-    }
-    class Dog
-    {
-        public long Id { get; set; }
-        public long MasterId { get; set; }
-        public string Name { get; set; }
-        public override string ToString()
         {
-            return "The dog's name is "+Name;
+            public long Id { get; set; }
+            public string Name { get; set; }
+        }
+        class Dog
+        {
+            public long Id { get; set; }
+            public long MasterId { get; set; }
+            public string Name { get; set; }
+            public override string ToString()
+            {
+                return "The dog's name is " + Name;
+            }
         }
     }
 }
