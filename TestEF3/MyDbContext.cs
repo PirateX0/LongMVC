@@ -23,8 +23,8 @@ namespace TestEF3
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder); modelBuilder.Configurations.AddFromAssembly(
-            Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
 
             //modelBuilder.Entity<Person>().ToTable("T_Persons");
             //modelBuilder.Configurations.Add(new PersonConfig());
